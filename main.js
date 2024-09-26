@@ -5,7 +5,7 @@ const main={
 
 init: function(){
 this.conectarAPI()
-this.listarCadastros()
+
 //this.enviarDadosAPI()
 
 
@@ -29,8 +29,7 @@ fetch(API).then(Response=>{
        
         return newar
      })
-
-     this.objzz.push(...teste)
+   this.listarCadastros(teste)
 
     })
    
@@ -38,31 +37,23 @@ fetch(API).then(Response=>{
 },
 
 
-listarCadastros(){
+listarCadastros(teste){
     const self = this
     alert("qer")
-    //console.log(this.objzz)
+    console.log(this.objzz)
   const corpo = document.querySelector('.lista')
 
-  this.objzz.map( itens => {
+ teste.map( itens => {
 
-   console.log(itens)
-
-           /*  const html = `   <article>
+             const html = `   <article>
                     <p>*DADOS*</p>
-                    <p>nome: ${intens.nome}</p>
-                    <p>idade: ${intens.idade}</p>
+                    <p>nome: ${itens.nome}</p>
+                    <p>idade: ${itens.idade}</p>
                 </article>`
 
-corpo.innerHTML = html
-*/
-    })
-
-
+corpo.innerHTML += html
  
-}
-
-
+})},
 
 }
 
