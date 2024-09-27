@@ -24,7 +24,17 @@ envForm.onsubmit = function(e){
 
         })
     }).then( Response=>{
-        console.log(Response)
+        Response.json(date=>{
+if(date.message == "success"){
+
+    envForm.reset()
+
+    alert('cadastro realizado com sucesso')
+}else{
+alert("erro!!!!!")
+}
+
+        })
     })
 
     
