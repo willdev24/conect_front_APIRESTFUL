@@ -1,7 +1,5 @@
-
+let contador = 1
 const main={
-
- objzz:[],
 
 init: function(){
 this.conectarAPI()
@@ -38,19 +36,20 @@ fetch(API).then(Response=>{
 
 
 listarCadastros(teste){
-    const self = this
-    alert("qer")
-    console.log(this.objzz)
+  
   const corpo = document.querySelector('.lista')
 
  teste.map( itens => {
+  
 
              const html = `   <article>
-                    <p>*DADOS*</p>
+                    <p>*DADOS ${contador}</p>
                     <p>nome: ${itens.nome}</p>
                     <p>idade: ${itens.idade}</p>
-                </article>`
-
+                </article>
+                <hr>
+                `
+                contador++
 corpo.innerHTML += html
  
 })},
