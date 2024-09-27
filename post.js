@@ -27,8 +27,6 @@ envForm.onsubmit = function(e){
         Response.json(date=>{
 if(date.message == "success"){
 
-    envForm.reset()
-
     alert('cadastro realizado com sucesso')
 }else{
 alert("erro!!!!!")
