@@ -4,22 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header></header>
-        <nav style="display: flex; justify-content:center;  justify-content: space-around; align-items: center; background-color: rgb(0, 0, 0); padding: 20px 20px;">
-            <li  style="list-style: none;"><a style="text-decoration: none; color: aliceblue;" href="/cadastro.html">cadastros</a></li>
-            <li style="list-style: none;"><a style="text-decoration: none; color: aliceblue;" href="/index.html">lista de cadastros</a></li>
-          
-        </nav>
-    </header>
-    
-    <form >
+    <body>
+            <header>
+                     <p><a href="/index.html">lista de cadastro</a></p>
+                     <p><a href="/cadastro.html">cadastrar</a></p>
+            </header>;
+ 
+         <form id="formu">
+            <div>
+                <div id="primeiro"> 
+                <label for="idade">idade</label>;
+                <input id="idade" type="text" name="idade">;
+            </div>
         
-    </form>
-
-
-<script src="/main.js"></script>
-</body>
+            <div>
+                <label for="nome">nome</label>
+                <input id="nome" type="text" name="nome">
+            </div>
+              <button type="submit" id="enviado">cadastrar</button>
+         </form>
+      
+        <script id="enviar" src="/post.js"></script>
+       
+    </body>
 
 </html>

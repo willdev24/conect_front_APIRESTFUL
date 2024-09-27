@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    padding: 17px;
+    background-color: black;
+    display: flex;
+    justify-content:space-around;
+}
+a{
+    color: aliceblue;
+    list-style: none;
+    text-decoration: none;
+}
+
+.lista{
+    margin-top: 10vh;
+}
+
+article{
+    margin-top: 25px;
+}
+#formu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+#primeiro{
+    margin-bottom: 10px;
+}
+
+button{
+    margin-top: 10px;
+}
