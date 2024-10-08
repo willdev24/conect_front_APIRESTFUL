@@ -16,24 +16,26 @@ envForm.onsubmit = function(e){
     fetch("http://localhost:8080/",{
         method: 'POST',
         headers:{
-          'content-Type': 'application/json'
+          'content-Type': 'application/json; charset=utf-8'
         },
         body: JSON.stringify({
             nome,
             idade
 
         })
-    }).then( Response=>{
-        Response.json(date=>{
-if(date.message == "success"){
+    }).then(response => {
 
-    alert('cadastro realizado com sucesso')
-}else{
-alert("erro!!!!!")
-}
+        response.json().then(date=>{
+            if(date.message === "success"){
+                alert('cadastro realizado')
+            }else{
+                throw new Error("erro entre ao conectar");
+                
+            }
 
         })
     })
+        
 
-    
 }
+    
