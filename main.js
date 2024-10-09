@@ -4,8 +4,6 @@ const main={
 init: function(){
 
   this.conectarAPI()
-  //this.editar()
-  this.apagar()
 
 },
 
@@ -60,23 +58,15 @@ listarCadastros(teste){
                 contador++
 corpo.innerHTML += html
  
-})},
+})
 
-/*
-editar: function(){
-
-  const editar = document.querySelectorAll(".editar")
-editar.el
-  editar.addEventListener('click', rodar)
+const apagardo= document.querySelectorAll('.excluir')
+apagardo.forEach(itens=>{
+  itens.addEventListener('click', this.Eventos.rodar)
+})
 
 },
-*/
-apagar: function(){
-console.log("okoko")
-  const apagardo= document.querySelector('.excluir')
-  apagardo.addEventListener('click', this.Eventos.rodar)
 
-},
 
 Eventos:{
   
