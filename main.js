@@ -48,7 +48,7 @@ listarCadastros(teste){
                    
              <div class="variaveis">
                     <ul class="variaveis">
-                        <li><a class="editar" href="#">EDITAR</a></li>
+                        <li  class="editar" ><a href="#">EDITAR</a></li>
                         <li class="excluir"  ><a href="#">EXCLUIR</a></li>
                     </ul>
              </div>  
@@ -58,24 +58,35 @@ listarCadastros(teste){
                 contador++
 corpo.innerHTML += html
  
+});
+
+const apagar= document.querySelectorAll('.excluir')
+apagar.forEach(itens=>{
+  itens.addEventListener('click', this.Eventos.rodar.bind(this))
+});
+
+const editar = document.querySelectorAll('.editar')
+editar.forEach(itens=>{
+  itens.addEventListener('click', this.Eventos.editando.bind(this))
 })
 
-const apagardo= document.querySelectorAll('.excluir')
-apagardo.forEach(itens=>{
-  itens.addEventListener('click', this.Eventos.rodar)
-})
 
 },
 
 
 Eventos:{
   
- rodar:function(){
+ rodar:function(e){
   console.log("okoko")
   alert("deuu certo")
- } 
-}
+ },
 
+editando:function(e){
+  console.log("okoko")
+  alert("deuu certo")
+
+}
+}
 
 }
 
