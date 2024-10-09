@@ -13,7 +13,7 @@ header{
     justify-content:space-around;
 }
 a{
-    color: aliceblue;
+    color: rgb(240, 13, 13);
     list-style: none;
     text-decoration: none;
 }
@@ -39,4 +39,22 @@ article{
 
 button{
     margin-top: 10px;
+}
+
+.inn, .variaveis{
+    display: flex;
+    margin-left: 25px;
+}
+.variaveis li{
+    margin-left: 10px;
+    list-style: none;
+}
+
+
+.lista{
+
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+
 }
