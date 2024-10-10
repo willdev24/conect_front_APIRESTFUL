@@ -38,7 +38,6 @@ listarCadastros(teste){
 
  teste.map( itens => {
   
-
              const html = `   <article class="inn">
              <div>
                     <p>*DADOS ${contador}</p>
@@ -48,8 +47,8 @@ listarCadastros(teste){
                    
              <div class="variaveis">
                     <ul class="variaveis">
-                        <li  class="editar" ><a href="#">EDITAR</a></li>
-                        <li class="excluir"  ><a href="#">EXCLUIR</a></li>
+                        <li  class="editar  ><a href="#" data-local="${itens.id}" data-nome="${itens.nome}" data-idade="${itens.idade}">EDITAR</a></li>
+                        <li class="excluir" ><a href="#" data-local="${itens.id}" data-nome="${itens.nome}" data-idade="${itens.idade}">EXCLUIR</a></li>
                     </ul>
              </div>  
                 </article>
@@ -67,7 +66,7 @@ apagar.forEach(itens=>{
 
 const editar = document.querySelectorAll('.editar')
 editar.forEach(itens=>{
-  itens.addEventListener('click', this.Eventos.editando.bind(this))
+  itens.addEventListener('click', this.Eventos.editando)
 })
 
 
@@ -77,13 +76,33 @@ editar.forEach(itens=>{
 Eventos:{
   
  rodar:function(e){
-  console.log("okoko")
-  alert("deuu certo")
+  const id = e.target.dataset.local
+
+fetch(`http://localhost:8080/${id}`, {
+  method:"DELETE",}).then(response => {
+    response.json().then( date=>{
+console.log(date)
+    })
+  })
+  
  },
 
 editando:function(e){
-  console.log("okoko")
-  alert("deuu certo")
+  const id = e.target.dataset.local
+    const nome = e.target.dataset.nome
+    const idade = e.target.dataset.idade
+
+  fetch(`http://localhost:8080/${id}`, {
+    method:"PUT",
+ 
+
+  
+  }).then(response => {
+      response.json().then( date=>{
+  console.log(date)
+      })
+    })
+    
 
 }
 }
