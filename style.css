@@ -62,3 +62,13 @@ button{
 .editar{
     cursor: pointer;
 }
+
+.edissao{
+
+    margin-top: 50px;
+margin-left: -200%;    
+}
+
+.open{
+    margin-left: 0%;
+}

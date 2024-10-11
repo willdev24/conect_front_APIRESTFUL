@@ -1,3 +1,5 @@
+
+
 let contador = 1
 const main={
 
@@ -61,12 +63,12 @@ corpo.innerHTML += html
 
 const apagar= document.querySelectorAll('.excluir')
 apagar.forEach(itens=>{
-  itens.addEventListener('click', this.Eventos.rodar.bind(this))
+  itens.addEventListener('click', this.Eventos.apagar.bind(this))
 });
 
 const editar = document.querySelectorAll('.editar')
 editar.forEach(itens=>{
-  itens.addEventListener('click', this.Eventos.editando)
+  itens.addEventListener('click', this.Eventos.editando.bind(this))
 })
 
 
@@ -75,7 +77,7 @@ editar.forEach(itens=>{
 
 Eventos:{
   
- rodar:function(e){
+ apagar:function(e){
   const id = e.target.dataset.local
 
 fetch(`http://localhost:8080/${id}`, {
@@ -86,11 +88,34 @@ console.log(date)
   })
   
  },
-
-editando:function(e){
-  const id = e.target.dataset.local
+ 
+ editando:function(e){
+   
+    const id = e.target.dataset.local
     const nome = e.target.dataset.nome
     const idade = e.target.dataset.idade
+
+const formEDITAR = document.querySelector('.edissao')
+
+const done = formEDITAR.classList.contains('open')
+
+if(done == false){
+  formEDITAR.classList.add('open')
+}
+
+const FORSM = document.querySelector('#formEDITAR')
+
+const nomeEdit = document.querySelector("#nome").value = nome
+const idadeEdit = document.querySelector("#idade").value = idade
+ 
+
+
+
+FORSM.onsubmit = function(){
+
+}
+
+ 
 
   fetch(`http://localhost:8080/${id}`, {
     method:"PUT",
@@ -99,7 +124,7 @@ editando:function(e){
   
   }).then(response => {
       response.json().then( date=>{
-  console.log(date)
+  
       })
     })
     

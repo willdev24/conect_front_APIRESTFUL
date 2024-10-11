@@ -1,9 +1,5 @@
 
 const $nome = document.querySelector("#nome")
-
-
-
-
 const envForm = document.querySelector("#formu") 
 
 envForm.onsubmit = function(e){
@@ -39,3 +35,4 @@ envForm.onsubmit = function(e){
 
 }
     
+
