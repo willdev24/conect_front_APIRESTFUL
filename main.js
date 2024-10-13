@@ -61,6 +61,8 @@ corpo.innerHTML += html
  
 });
 
+const self = this
+
 const apagar= document.querySelectorAll('.excluir')
 apagar.forEach(itens=>{
   itens.addEventListener('click', this.Eventos.apagar.bind(this))
@@ -68,7 +70,7 @@ apagar.forEach(itens=>{
 
 const editar = document.querySelectorAll('.editar')
 editar.forEach(itens=>{
-  itens.addEventListener('click', this.Eventos.editando.bind(this))
+  itens.addEventListener('click', this.Eventos.editando.bind(self))
 })
 
 
@@ -105,29 +107,41 @@ if(done == false){
 
 const FORSM = document.querySelector('#formEDITAR')
 
-const nomeEdit = document.querySelector("#nome").value = nome
-const idadeEdit = document.querySelector("#idade").value = idade
+  document.querySelector("#nome").value = nome
+  document.querySelector("#idade").value = idade
  
+FORSM.onsubmit = function(e){
 
+e.preventDefault()
 
-
-FORSM.onsubmit = function(){
-
-}
-
- 
-
+const nome = document.forms['formEDITAR'].nome.value
+const idade = document.forms['formEDITAR'].idade.value
+console.log(`http://localhost:8080/${id}`)
+console.log(id)
   fetch(`http://localhost:8080/${id}`, {
     method:"PUT",
- 
+    headers:{
+      'content-Type': 'application/json; charset=utf-8'
+    },
 
-  
+    body: JSON.stringify({
+    nome,
+    idade,
+    
+    }) 
+
   }).then(response => {
       response.json().then( date=>{
   
+        if(date){
+        self.conectarAPI()
+        }
+        
       })
     })
     
+
+}
 
 }
 }
