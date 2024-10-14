@@ -21,7 +21,8 @@ envForm.onsubmit = function(e){
         })
     }).then(response => {
 
-        response.json().then(date=>{
+        response.json().then( date=>{
+            
             if(date.message === "success"){
                 alert('cadastro realizado')
             }else{

@@ -10,7 +10,7 @@ init: function(){
 },
 
 
-conectarAPI(){
+conectarAPI: function(){
 const API = "http://localhost:8080/"
 
 fetch(API).then(Response=>{
@@ -34,7 +34,7 @@ fetch(API).then(Response=>{
 },
 
 
-listarCadastros(teste){
+listarCadastros: function(teste){
   
   const corpo = document.querySelector('.lista')
 
@@ -85,7 +85,10 @@ Eventos:{
 fetch(`http://localhost:8080/${id}`, {
   method:"DELETE",}).then(response => {
     response.json().then( date=>{
-console.log(date)
+       
+      if(date){
+        main.conectarAPI()
+      }
     })
   })
   
@@ -97,13 +100,21 @@ console.log(date)
     const nome = e.target.dataset.nome
     const idade = e.target.dataset.idade
 
+visivel()
+
+function visivel(){
 const formEDITAR = document.querySelector('.edissao')
 
 const done = formEDITAR.classList.contains('open')
 
 if(done == false){
   formEDITAR.classList.add('open')
+}else{
+  formEDITAR.classList.remove('open')
 }
+}
+
+
 
 const FORSM = document.querySelector('#formEDITAR')
 
@@ -116,8 +127,8 @@ e.preventDefault()
 
 const nome = document.forms['formEDITAR'].nome.value
 const idade = document.forms['formEDITAR'].idade.value
-console.log(`http://localhost:8080/${id}`)
-console.log(id)
+
+
   fetch(`http://localhost:8080/${id}`, {
     method:"PUT",
     headers:{
@@ -134,13 +145,16 @@ console.log(id)
       response.json().then( date=>{
   
         if(date){
-        self.conectarAPI()
+          const corpo = document.querySelector('.lista')
+          corpo.innerHTML = ""
+          main.conectarAPI()
+          visivel()
         }
         
       })
     })
     
-
+   
 }
 
 }
